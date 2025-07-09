@@ -30,7 +30,7 @@ const useBikes = (): UseQueryResult<{
     },
     {
       onSuccess: (data: any) => {
-        setThefts(data.bikes, data.results_count);
+        setThefts(data.bikes.bikes, data.results_count);
       },
       onError: (error: any) => {
         console.error("Error fetching bikes:", error);

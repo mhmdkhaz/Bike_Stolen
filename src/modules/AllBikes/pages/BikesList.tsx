@@ -28,7 +28,7 @@ const BikeList = () => {
       </Container>
       <>
         <AllBikes
-          data={thefts}
+          bikes={thefts}
           results_count={totalThefts}
           currentPage={currentPage}
           onPageChange={handlePageChange}

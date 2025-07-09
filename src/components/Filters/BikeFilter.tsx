@@ -41,7 +41,7 @@ const BikeFilters: React.FC<{ onSearch: Function; isLoading: boolean }> = ({
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4}>
           <TextField
-            label="title or date"
+            label="title or year"
             variant="outlined"
             value={localFilters.query}
             fullWidth

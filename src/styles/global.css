@@ -1,0 +1,287 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+main {
+  max-width: 2000px;
+  margin: 0 auto;
+}
+* {
+  transition: all 0.5s ease-in-out;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Somar";
+  src: url("../assets/fonts/somar/Somar-Regular.otf") format("opentype");
+  font-weight: "800";
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Somar";
+  src: url("../assets/fonts/somar/ARBFONTS-SOMAR-BOLD.OTF") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Somar";
+  src: url("../assets/fonts/somar/ARBFONTS-SOMAR-LIGHTITALIC.OTF")
+    format("opentype");
+  font-weight: "800";
+  font-style: italic;
+}
+
+.Somar {
+   font-family: "Somar", sans-serif;
+}
+ 
+.root,
+#root,
+#docs-root {
+  --primary-color: #2fa1a8;
+  --primary-color-hover: #15787d;
+  --secondary-color: #545454;
+  --secondary-color-hover: #5c279c;
+  --third-color: #5b87dd;
+  --third-color-hover: #572a96;
+  --fourth-color: #222222;
+  --fifth-color: #ffffff;
+  --fifth-color-hover: #f1f1f1;
+  --sixth-color: #f5f5f5;
+  --sixth-color-hover: #e3e3e3;
+  --seven-color: #7d7d7d;
+  --eight-color: #f7f8f9;
+}
+::-webkit-scrollbar {
+  background-color: #c3af9d;
+  display: none;
+  width: 9px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #e8e2ca;
+}
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+section {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+@media (max-width: 600px) {
+  section {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+@layer components {
+  .textHug {
+    @apply text-3xl md:text-4xl lg:text-6xl;
+  }
+
+  .textTitle {
+    @apply text-2xl md:text-3xl;
+  }
+
+  .textSubTitle {
+    @apply text-xl md:text-2xl;
+  }
+
+  .textMain {
+    @apply text-base md:text-lg;
+  }
+
+  .textSmall {
+    @apply text-xs;
+  }
+}
+
+.loader {
+  transform: rotateZ(45deg);
+  perspective: 1000px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  color: #c3af9d;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  transform: rotateX(70deg);
+  animation: 1s spin linear infinite;
+}
+.loader:after {
+  color: #a96808;
+  transform: rotateY(70deg);
+  animation-delay: 0.4s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotateZ(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateZ(360deg);
+  }
+}
+
+@keyframes rotateccw {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+@keyframes spin {
+  0%,
+  100% {
+    box-shadow: 0.2em 0px 0 0px currentcolor;
+  }
+  12% {
+    box-shadow: 0.2em 0.2em 0 0 currentcolor;
+  }
+  25% {
+    box-shadow: 0 0.2em 0 0px currentcolor;
+  }
+  37% {
+    box-shadow: -0.2em 0.2em 0 0 currentcolor;
+  }
+  50% {
+    box-shadow: -0.2em 0 0 0 currentcolor;
+  }
+  62% {
+    box-shadow: -0.2em -0.2em 0 0 currentcolor;
+  }
+  75% {
+    box-shadow: 0px -0.2em 0 0 currentcolor;
+  }
+  87% {
+    box-shadow: 0.2em -0.2em 0 0 currentcolor;
+  }
+}
+
+.custom-phone-input {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.custom-phone-input .react-tel-input {
+  border-radius: 8px;
+  width: 100%;
+}
+
+.custom-phone-input .react-tel-input .form-control {
+  width: 100%;
+  border-radius: 8px;
+  background-color: #ffff !important;
+  padding-right: 60px;
+}
+
+.custom-phone-input .react-tel-input .flag-dropdown {
+  position: absolute;
+  right: 0;
+  top: 0%;
+  /* transform: translateY(-10%); */
+  /* transform: translateX(100%); */
+  /* margin-right: 10px;  */
+  background-color: #ffff !important;
+  padding-inline: 2%;
+  border-radius: 8px;
+}
+.custom-phone-input .react-tel-input .selected-flag {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #ffff !important;
+  border-radius: 8px;
+  padding-inline: 40px;
+}
+
+.custom-phone-input .react-tel-input .selected-flag .arrow {
+  position: absolute;
+  left: -10px !important;
+  top: 7px !important;
+  border-radius: 8px;
+  background-color: #ffff !important;
+}
+.custom-phone-input .react-tel-input .country-name {
+  color: #000 !important;
+}
+
+/*  */
+.react-datepicker {
+  width: 100% !important;
+  border: none !important;
+}
+.react-datepicker {
+  font-family: Arial, sans-serif !important;
+  background-color: #fff;
+  width: 100% !important;
+  border-radius: 4px !important;
+}
+
+.react-datepicker__header {
+  background-color: #ffffff !important;
+  width: 300px;
+  border: none !important;
+  padding: 10px !important;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.react-datepicker__navigation {
+  /* background-color: #3dcbb1 !important; */
+  color: rgba(225, 101, 101, 0.073) !important;
+  font-weight: 600 !important;
+  margin-top: 10px !important;
+}
+.react-datepicker__aria-live {
+  color: black !important;
+  font-weight: 600 !important;
+  margin-top: 10px !important;
+}
+.react-datepicker__navigation--next {
+  color: black !important;
+  font-weight: 600 !important;
+  margin-top: 10px !important;
+}
+.react-datepicker__navigation-icon {
+  color: black !important;
+  font-weight: 600 !important;
+  margin-top: 10px !important;
+}
+.react-datepicker__navigation-icon--next {
+  color: black !important;
+  font-weight: 600 !important;
+  margin-top: 10px !important;
+}
+.react-datepicker__day--selected,
+.react-datepicker__day--in-range {
+  background-color: #3dcbb1 !important;
+}
+
+.react-datepicker__day--disabled {
+  background-color: #3dcbb1 !important;
+  pointer-events: none;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #3dcbb1 !important;
+}

@@ -1,7 +1,4 @@
-import type { Theft } from "./Theft";
-
 export interface TheftStore {
-  // thefts: Theft[];
   totalThefts: number;
   error: string | null;
   currentPage: number;

@@ -1,12 +1,10 @@
 import loadable from "@loadable/component";
 import { Box } from "@mui/material";
 import { Suspense, useEffect } from "react";
-import { QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { HttpResponseInterceptor } from "./interceptor/http-response.interceptor";
-import queryClient from "./queryClient";
 import { ThemeProviderWraper } from "./theme/providers/ThemeProvider";
 import "./App.css";
 

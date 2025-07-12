@@ -30,24 +30,24 @@ function App() {
       <Box>
         <Suspense fallback="Loading">
           <ThemeProviderWraper>
-            <QueryClientProvider client={queryClient}>
-              <>
-                <AppRoutings />
-                <ToastContainer
-                  position="bottom-right"
-                  autoClose={5000}
-                  hideProgressBar={false}
-                  newestOnTop
-                  closeOnClick
-                  rtl={false}
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
-                  theme="light"
-                />
-              </>
-              <ReactQueryDevtools initialIsOpen={false} />
-            </QueryClientProvider>
+            {/* <QueryClientProvider client={queryClient}> */}
+            <>
+              <AppRoutings />
+              <ToastContainer
+                position="bottom-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+              />
+            </>
+            <ReactQueryDevtools initialIsOpen={false} />
+            {/* </QueryClientProvider> */}
           </ThemeProviderWraper>
         </Suspense>
       </Box>

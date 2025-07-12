@@ -1,11 +1,11 @@
 import type { Theft } from "./Theft";
 
 export interface TheftStore {
-  thefts: Theft[];
+  // thefts: Theft[];
   totalThefts: number;
   error: string | null;
   currentPage: number;
-  setThefts: (thefts: Theft[], total: number) => void;
+  setThefts: (total: number) => void;
   setError: (error: string | null) => void;
   setCurrentPage: (page: number) => void;
   incrementPage: () => void;

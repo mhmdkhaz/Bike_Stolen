@@ -6,15 +6,16 @@ import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import App from "./App";
 import { ThemeProviderWraper } from "./theme/providers/ThemeProvider";
+import queryClient from "./queryClient";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-      retry: false,
-    },
-  },
-});
+// const queryClient = new QueryClient({
+//   defaultOptions: {
+//     queries: {
+//       refetchOnWindowFocus: false,
+//       retry: false,
+//     },
+//   },
+// });
 
 const rootElement = document.getElementById("root");
 

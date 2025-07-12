@@ -5,10 +5,11 @@ import AllBikes from "../components/AllBikes";
 import useBikes from "../hooks/useBike";
 
 const BikeList = () => {
-  const { thefts, totalThefts, currentPage, setCurrentPage, setFilters } =
+  const { totalThefts, currentPage, setCurrentPage, setFilters } =
     useBikeStore();
 
-  const { isLoading, isFetching } = useBikes();
+  const { data, isLoading, isFetching } = useBikes();
+  const dataBikes = data?.bikes?.bikes;
 
   const handleSearch = (searchQuery: string) => {
     setFilters({
@@ -28,11 +29,12 @@ const BikeList = () => {
       </Container>
       <>
         <AllBikes
-          bikes={thefts}
+          bikes={dataBikes || []}
           results_count={totalThefts}
           currentPage={currentPage}
           onPageChange={handlePageChange}
-          isLoading={isLoading || isFetching}
+          isLoading={isLoading}
+          isFetching={isFetching}
         />
       </>
     </div>

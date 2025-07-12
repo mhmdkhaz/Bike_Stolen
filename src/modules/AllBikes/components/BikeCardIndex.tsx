@@ -26,7 +26,7 @@ const BikeCard: React.FC<BikeCardProps> = ({
         display: "flex",
         flexDirection: { xs: "column", sm: "row" },
         alignItems: "center",
-        maxWidth: 600,
+        maxWidth: "100%",
         margin: 1,
         boxShadow: 3,
         cursor: "pointer",

@@ -13,6 +13,7 @@ const AllBikes = ({
   currentPage,
   onPageChange,
   isLoading = false,
+  isFetching = false,
 }: {
   // data: { bikes: Theft[] };
   bikes: Theft[];
@@ -20,6 +21,7 @@ const AllBikes = ({
   currentPage: number;
   onPageChange: (newPage: number) => void;
   isLoading?: boolean;
+  isFetching?: boolean;
 }) => {
   const totalPages = Math.ceil(results_count / 10);
 
@@ -43,12 +45,28 @@ const AllBikes = ({
           </>
         )}
       </Typography>
-
+      {/* 
       <Grid container spacing={4} justifyContent="center">
         {isLoading ? (
           <BikeSkeleton />
         ) : bikes?.length > 0 ? (
           <BikeList bikes={bikes} />
+        ) : (
+          <NoData text="No bike theft cases found." />
+        )}
+      </Grid> */}
+      <Grid container spacing={4} justifyContent="center">
+        {isLoading || isFetching ? (
+          <BikeSkeleton />
+        ) : bikes?.length > 0 ? (
+          <>
+            <BikeList bikes={bikes} />
+            {isFetching && (
+              <Box sx={{ width: "100%", mt: 2 }}>
+                <Skeleton variant="rectangular" height={20} />
+              </Box>
+            )}
+          </>
         ) : (
           <NoData text="No bike theft cases found." />
         )}

@@ -4,13 +4,17 @@ import { _BikesApi } from "../../../services/bikes/bikes.service";
 import type { Theft } from "../../../types/Theft";
 
 const useBikes = (): UseQueryResult<{
-  bikes: Theft[];
+  bikes: {
+    bikes: Theft[];
+    total: number;
+  };
   results_count: number;
 }> => {
   const { currentPage, filters, setThefts, setError } = useBikeStore();
+  // const { currentPage, filters, setError } = useBikeStore();
 
   return useQuery(
-    ["bikes", currentPage, filters],
+    ["bikes", currentPage, filters.query, filters.stolenness, filters.location],
     async () => {
       const bikes = await _BikesApi.index({
         page: currentPage,
@@ -30,12 +34,13 @@ const useBikes = (): UseQueryResult<{
     },
     {
       onSuccess: (data: any) => {
-        setThefts(data.bikes.bikes, data.results_count);
+        setThefts(data.results_count);
       },
       onError: (error: any) => {
         console.error("Error fetching bikes:", error);
         setError(error.message || "Failed to fetch bikes");
       },
+      keepPreviousData: true,
     }
   );
 };

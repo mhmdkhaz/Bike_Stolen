@@ -2,7 +2,7 @@ import { create } from "zustand";
 import type { TheftStore } from "../types/TheftStore";
 
 export const useBikeStore = create<TheftStore>((set) => ({
-  thefts: [],
+  // thefts: [],
   totalThefts: 0,
   error: null,
   currentPage: 1,
@@ -12,7 +12,7 @@ export const useBikeStore = create<TheftStore>((set) => ({
     location: "Munich",
   },
 
-  setThefts: (thefts, total) => set({ thefts, totalThefts: total }),
+  setThefts: (total) => set({ totalThefts: total }),
   setError: (error) => set({ error }),
 
   setCurrentPage: (page) => set({ currentPage: page }),
